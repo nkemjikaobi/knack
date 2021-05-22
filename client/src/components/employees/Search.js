@@ -26,12 +26,15 @@ const Search = () => {
             <div>
                 <form className="form mb-4 mt-4">
                     <div className="row">
-                        <div className="input-field col-md-6 col-sm-12">
+                        {/* <div className="input-field col-md-6 col-sm-12">
                             <input type="text" className="mr-auto" name='text' placeholder='Filter Employees by name, email, role, dept' ref={text} onChange={onChange} />
+                        </div> */}
+                        <div className="input-field col-md-6 col-sm-12">
+                            <input id="search" type="text" placeholder='Filter Employees by name, email, role, dept' required ref={text} onChange={onChange}/>
                         </div>
                         <div className="input-field col-md-6 col-sm-12 col s12">
                             <select>
-                            <option value="" disabled selected>All</option>
+                            <option value="" selected>All</option>
                             <option value="1">Role</option>
                             <option value="2">Department</option>
                             <option value="3">Name</option>

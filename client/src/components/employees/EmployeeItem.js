@@ -10,8 +10,10 @@ const EmployeeItem = ({ employee: { firstname, lastname, email, department, role
                 <p style={paragraphColor}><b>Dept:</b> {department}</p>
                 <p style={paragraphColor}><b>Role:</b> {role}</p>
                 <div>
-                    <button className={`btn ${isAvailable ? 'btn-success' : 'btn-danger'} btn-sm my-1`}>{isAvailable ? 'Available' : 'Occupied'}</button>
-                    <button type="button" className={`btn btn-dark btn-sm my-1 `} disabled={!isAvailable}>{isAvailable ? 'Schedule Meeting' : 'Cannot Schedule Meeting'}</button>
+                    <a href="#schedule-meeting-modal" className={`btn ${isAvailable ? 'green' : 'red'} btn-sm my-1 meeting modal-trigger`}>
+                        {isAvailable ? 'Available' : 'Occupied'}    {isAvailable ? <i class="fas fa-check-circle"></i> : <i class="fas fa-times"></i>}
+                    </a>
+                    <button type="button" className={`btn blue btn-sm my-1 `} disabled={!isAvailable}>{isAvailable ? 'Schedule Meeting' : 'Cannot Schedule'} <i class="far fa-calendar-alt"></i></button>
                 </div>
             </div>
         )

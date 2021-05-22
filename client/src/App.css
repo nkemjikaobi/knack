@@ -381,6 +381,9 @@ table th {
   grid-template-columns: repeat(3,1fr);
   grid-gap: 1rem;
 }
+.meeting:hover{
+  color: #fff !important;
+}
 
 /* Mobile Styles */
 @media (max-width: 700px) {
