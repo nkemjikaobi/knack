@@ -3,7 +3,7 @@ import{
     SET_LOADING,
     CLEAR_USERS,
     GET_REPOS,
-    GET_USERS
+    GET_EMPLOYEES
 } from '../types'
 
 const employeeReducer = (state, action) => {
@@ -20,10 +20,10 @@ const employeeReducer = (state, action) => {
                 users: [],
                 loading: false
             }
-        case GET_USERS:
+        case GET_EMPLOYEES:
             return{
                 ...state,
-                user: action.payload,
+                employees: action.payload,
                 loading: false
             }
         case GET_REPOS:

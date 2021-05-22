@@ -24,10 +24,6 @@ const Search = () => {
                     <input type="text" name='text' placeholder='Search Users...' value={text} onChange={onChange}/>
                     <input type="submit" value="Search" className='btn btn-block btn-dark'/>
                 </form>
-                {EmployeeContext.users.length > 0 && (
-                    <button onClick={EmployeeContext.clearUsers} className='btn btn-block btn-light'>Clear</button>
-                )}
-
             </div>
         )
 }

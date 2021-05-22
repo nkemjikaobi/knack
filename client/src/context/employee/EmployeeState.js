@@ -7,7 +7,7 @@ import{
     SET_LOADING,
     CLEAR_USERS,
     GET_REPOS,
-    GET_USERS
+    GET_EMPLOYEES
 } from '../types'
 
 
@@ -24,11 +24,10 @@ else{
     gitHubClientSecret = process.env.GITHUB_CLIENT_SECRET;
 }
 
-const GithubState = props => {
+const EmployeeState = props => {
     const initialState = {
-        users: [],
-        user: {},
-        repos: [],
+        employees: [],
+        employee: {},
         loading: false,
     }
 
@@ -44,12 +43,13 @@ const GithubState = props => {
     })
   }
 
-    //Get User
-    const getUser = async (username) => {
+    //Get Employees
+    const getEmployees = async () => {
         setLoading()
-        const res = await axios.get(`https://api.github.com/users/${username}?client_id=${gitHubClientId}&client_secret=${gitHubClientSecret}`);
+        const res = await axios.get(`/api/employees`);
+        console.log(res.data);
         dispatch({
-            type: GET_USERS,
+            type: GET_EMPLOYEES,
             payload: res.data
         })
       }
@@ -72,17 +72,16 @@ const GithubState = props => {
 
     return <employeeContext.Provider
         value={{
-            users: state.users,
-            user: state.user,
-            repos: state.repos,
+            employees: state.employees,
+            employee: state.employee,
             loading: state.loading,
             searchUsers,
             clearUsers,
-            getUser,
+            getEmployees,
             getUserRepos
         }}>
             {props.children}
     </employeeContext.Provider>
 }
 
-export default GithubState;
+export default EmployeeState;

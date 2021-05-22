@@ -1,26 +1,32 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import EmployeeItem from './EmployeeItem';
 import Spinner from '../layout/Spinner';
 import employeeContext from '../../context/employee/employeeContext'
 
 const Employees = () => {
     const EmployeeContext = useContext(employeeContext);
-    const { loading, users } = EmployeeContext;
+    const { loading, employees, getEmployees } = EmployeeContext;
+
+    useEffect(() => {
+        getEmployees();
+       //eslint-disable-next-line
+    }, [])
+
     if(loading){
         return <Spinner />
     }
     else {
         return (
-            <div style={userStyle}>
-                { users.map(user =>  (
-                    <EmployeeItem/>
+            <div style={employeeStyle}>
+                { employees.map(employee =>  (
+                    <EmployeeItem key={employee._id} employee={employee}/>
                 ))}
             </div>
         );
     }
 }
 
-const userStyle = {
+const employeeStyle = {
     display: 'grid',
     gridTemplateColumns: 'repeat(3,1fr)',
     gridGap: '1rem'
