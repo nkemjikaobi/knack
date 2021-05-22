@@ -1,0 +1,9 @@
+export const SEARCH_EMPLOYEES = 'SEARCH_EMPLOYEES';
+export const GET_EMPLOYEES = 'GET_EMPLOYEES';
+export const SET_LOADING = 'SET_LOADING';
+export const SET_ALERT = 'SET_ALERT';
+export const REMOVE_ALERT = 'REMOVE_ALERT';
+export const CLEAR_USERS = 'CLEAR_USERS'; //remove later
+export const GET_REPOS = 'GET_REPOS'; //remove later
+export const GET_USERS = 'GET_USERS'; //remove later
+export const SEARCH_USERS = 'SEARCH_USERS'; //remove later

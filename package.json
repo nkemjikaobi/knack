@@ -1,0 +1,35 @@
+{
+  "name": "knack",
+  "version": "1.0.0",
+  "description": "An application to view employees and filter through them",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "cd client && npm run build",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "client-install": "cd client && npm install",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nkemjikaobi/knack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nkemjikaobi/knack/issues"
+  },
+  "homepage": "https://github.com/nkemjikaobi/knack#readme",
+  "dependencies": {
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.10",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "concurrently": "^6.1.0",
+    "nodemon": "^2.0.7"
+  }
+}
