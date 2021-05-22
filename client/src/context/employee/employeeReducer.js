@@ -5,7 +5,9 @@ import{
     GET_REPOS,
     GET_EMPLOYEES,
     FILTER_EMPLOYEES,
-    CLEAR_FILTER
+    CLEAR_FILTER,
+    CLEAR_CURRENT,
+    SET_CURRENT
 } from '../types'
 
 const employeeReducer = (state, action) => {
@@ -28,7 +30,7 @@ const employeeReducer = (state, action) => {
                 employees: action.payload,
                 loading: false
             }
-            case FILTER_EMPLOYEES:
+        case FILTER_EMPLOYEES:
             return {
                 ...state,
                 filtered: state.employees.filter(employee => {
@@ -42,6 +44,16 @@ const employeeReducer = (state, action) => {
             return {
                 ...state,
                 filtered: null
+            }
+        case SET_CURRENT:
+            return {
+                ...state,
+                current: action.payload
+            }
+        case CLEAR_CURRENT:
+            return {
+                ...state,
+                current: null
             }
         case GET_REPOS:
             return {

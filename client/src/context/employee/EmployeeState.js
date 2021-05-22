@@ -9,7 +9,9 @@ import{
     GET_REPOS,
     GET_EMPLOYEES,
     FILTER_EMPLOYEES,
-    CLEAR_FILTER
+    CLEAR_FILTER,
+    SET_CURRENT,
+    CLEAR_CURRENT
 } from '../types'
 
 
@@ -29,7 +31,7 @@ else{
 const EmployeeState = props => {
     const initialState = {
         employees: [],
-        employee: {},
+        current: null,
         filtered: null,
         loading: false,
         error: null
@@ -73,6 +75,21 @@ const EmployeeState = props => {
             })
         }
 
+        //Set Current Contact
+        const setCurrent = employee => {
+            dispatch({ 
+                type: SET_CURRENT, 
+                payload: employee 
+            })
+        }
+
+        //Clear Current Contact
+        const clearCurrent = () => {
+            dispatch({
+                 type: CLEAR_CURRENT 
+                })
+        }
+
     //Get Repos
     const getUserRepos = async (username) => {
         setLoading()
@@ -92,7 +109,7 @@ const EmployeeState = props => {
     return <employeeContext.Provider
         value={{
             employees: state.employees,
-            employee: state.employee,
+            current: state.current,
             loading: state.loading,
             filtered: state.filtered,
             searchUsers,
@@ -100,6 +117,8 @@ const EmployeeState = props => {
             getEmployees,
             filterEmployees,
             clearFilter,
+            setCurrent,
+            clearCurrent,
             getUserRepos
         }}>
             {props.children}
