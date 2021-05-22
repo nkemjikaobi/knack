@@ -1,4 +1,4 @@
-import React  from 'react';
+import React,{ useEffect }  from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './components/layout/Navbar';
 // import User from './components/users/User';
@@ -9,7 +9,14 @@ import EmployeeState from './context/employee/EmployeeState'
 import AlertState from './context/alert/AlertState'
 import './App.css';
 
+import 'materialize-css/dist/css/materialize.min.css';
+import M from 'materialize-css/dist/js/materialize.min.js';
+
 const App = () =>  {
+  useEffect( () => {
+    //Initializes Materialize JS
+    M.AutoInit();
+  })
 
     return (
       <EmployeeState>

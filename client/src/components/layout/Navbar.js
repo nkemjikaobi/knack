@@ -5,22 +5,26 @@ import { Link } from 'react-router-dom'
 const Navbar = ({ icon,title}) => {
 
         return (
-            <nav className='navbar bg-primary' >
-                <h3>
-                   <i className = { icon }/> { title }
-                </h3>
-                <ul>
-                    <li>
-                        <Link to='/'>Home</Link>
-                    </li>
-                </ul>
-            </nav>
+            <div className="navbar-fixed">
+                <nav style={navBgColor}>
+                    <div className="nav-wrapper ml-5">
+                        <a href="!#" className="brand-logo"><i className = {`fab ${icon}`}/> { title }</a>
+                        <ul id="nav-mobile" className="right hide-on-med-and-down">
+                            <li>
+                                <Link to='/'>Home</Link>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         )
 }
 
-
+const navBgColor = {
+    backgroundColor: '#003699'
+}
 Navbar.defaultProps = {
-    icon:'fab fa-canadian-maple-leaf',
+    icon:'fa-canadian-maple-leaf',
     title: 'Knack'
 };
 

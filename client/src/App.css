@@ -25,7 +25,7 @@ body {
 
 a {
   color: var(--primary-color);
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a:hover {
@@ -421,5 +421,15 @@ table th {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 1rem;
+  }
+  .brand-logo{
+    display: inline-block !important;
+  }
+  .nav-wrapper {
+    margin-left: -10px !important;
+    margin-top: 2px !important;
+  }
+  .fab{
+    margin-top: 12px !important;
   }
 }
