@@ -1,6 +1,5 @@
 import React, { useEffect, useContext, useRef } from 'react'
 import employeeContext from '../../context/employee/employeeContext'
-import AlertContext from '../../context/alert/alertContext'
 
 const Search = () => {
     const EmployeeContext = useContext(employeeContext);
@@ -26,9 +25,6 @@ const Search = () => {
             <div>
                 <form className="form mb-4 mt-4">
                     <div className="row">
-                        {/* <div className="input-field col-md-6 col-sm-12">
-                            <input type="text" className="mr-auto" name='text' placeholder='Filter Employees by name, email, role, dept' ref={text} onChange={onChange} />
-                        </div> */}
                         <div className="input-field col-md-6 col-sm-12">
                             <input id="search" type="text" placeholder='Filter Employees by name, email, role, dept' required ref={text} onChange={onChange}/>
                         </div>

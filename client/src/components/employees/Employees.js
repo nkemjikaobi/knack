@@ -3,6 +3,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import EmployeeItem from './EmployeeItem';
 import Spinner from '../layout/Spinner';
 import employeeContext from '../../context/employee/employeeContext'
+import ScheduleMeetingModal from '../employees/ScheduleMeetingModal';
 
 const Employees = () => {
     const EmployeeContext = useContext(employeeContext);
@@ -15,6 +16,7 @@ const Employees = () => {
 
     return (
         <Fragment>
+            <ScheduleMeetingModal />
             {employees !== null && !loading ? (
                 <TransitionGroup className="employee_style">
                 {filtered !== null 

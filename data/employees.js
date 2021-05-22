@@ -1,84 +1,84 @@
 
 const employees = [
     {
-        firstname: 'Nkemjika',
-        lastname: 'Obi',
+        firstName: 'Nkemjika',
+        lastName: 'Obi',
         email: 'nkemjikaobi@gmail.com',
         department: 'Technology',
         role: 'Frontend Engineer',
         isAvailable: true
     },
     {
-        firstname: 'Janet',
-        lastname: 'Monroe',
+        firstName: 'Janet',
+        lastName: 'Monroe',
         email: 'janetmonroe@outlook.com',
         department: 'Marketing',
         role: 'Intern'
     },
     {
-        firstname: 'Michael',
-        lastname: 'Ross',
+        firstName: 'Michael',
+        lastName: 'Ross',
         email: 'mikeross@yahoo.co.uk',
         department: 'Infrastructure',
         role: 'System Architect',
         isAvailable: true
     },
     {
-        firstname: 'Melinda',
-        lastname: 'Foreman',
+        firstName: 'Melinda',
+        lastName: 'Foreman',
         email: 'melindaforeman@gmail.com',
         department: 'Products',
         role: 'Product Designer',
     },
     {
-        firstname: 'Louis',
-        lastname: 'Litt',
+        firstName: 'Louis',
+        lastName: 'Litt',
         email: 'louisliit@outlook.com',
         department: 'Legal Affairs',
         role: 'Paralegal',
         isAvailable: true
     },
     {
-        firstname: 'Mark',
-        lastname: 'Zuckerberg',
+        firstName: 'Mark',
+        lastName: 'Zuckerberg',
         email: 'markzuckerberg@yahoo.com',
         department: 'Technology',
         role: 'Dev Manager',
     },
     {
-        firstname: 'Opeyemi',
-        lastname: 'Adeyeye',
+        firstName: 'Opeyemi',
+        lastName: 'Adeyeye',
         email: 'opeade@gmail.com',
         department: 'Security',
         role: 'Chief Security Officer',
         isAvailable: true
     },
     {
-        firstname: 'Cersei',
-        lastname: 'Lannister',
+        firstName: 'Cersei',
+        lastName: 'Lannister',
         email: 'lannistercersei@outlook.com',
         department: 'Data',
         role: 'Data Analyst',
         isAvailable: true
     },
     {
-        firstname: 'Leo',
-        lastname: 'Stan',
+        firstName: 'Leo',
+        lastName: 'Stan',
         email: 'leostan@yahoo.com',
         department: 'Executive',
         role: 'Chief Executive Office',
     },
     {
-        firstname: 'Rachel',
-        lastname: 'Zayne',
+        firstName: 'Rachel',
+        lastName: 'Zayne',
         email: 'raychelzayne@yahoo.com',
         department: 'Finance',
         role: 'Account Manager',
         isAvailable: true
     },
     {
-        firstname: 'Matthew',
-        lastname: 'Pavard',
+        firstName: 'Matthew',
+        lastName: 'Pavard',
         email: 'matthewpavard@outlook.com',
         department: 'Warehouse',
         role: 'Stock Manager',
