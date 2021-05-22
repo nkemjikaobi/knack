@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-const Navbar = ({ icon,title }) => {
+const Navbar = ({ icon,title ,navBgColor}) => {
 
         return (
             <nav className='navbar bg-primary'>
-                <h1>
+                <h3>
                    <i className = { icon }/> { title }
-                </h1>
+                </h3>
                 <ul>
                     <li>
                         <Link to='/'>Home</Link>

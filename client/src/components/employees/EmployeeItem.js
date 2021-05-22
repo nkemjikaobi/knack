@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const EmployeeItem = ({ employee: { firstname, lastname, email, department, role, isAvailable} }) => {
 
         return (
-            <div className='card text-center'>
+            <div className='card text-center mt-4'>
                 <h3>{firstname + ' ' + lastname }</h3>
                 <p>Email {email}</p>
                 <p>Dept {department}</p>

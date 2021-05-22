@@ -20,9 +20,23 @@ const Search = () => {
    const onChange = e => setText(e.target.value );
         return (
             <div>
-                <form onSubmit={onSubmit} className="form">
-                    <input type="text" name='text' placeholder='Search Users...' value={text} onChange={onChange}/>
-                    <input type="submit" value="Search" className='btn btn-block btn-dark'/>
+                <form onSubmit={onSubmit} className="form mb-4">
+                    <div className="row">
+                        <div className="col md-3">
+                            <input type="text" classNamw="mr-auto" name='text' placeholder='Search Employees...' value={text} onChange={onChange} />
+                            {/* <i class="fas fa-search"></i> */}
+                        </div>
+                        <div className="col md-4">
+                            {/* <label htmlFor="inputGroupSelect04">Sort By:</label> */}
+                            <select className="custom-select mt-4 " id="inputGroupSelect04" aria-label="Example select with button addon">
+                                <option selected>Sort By</option>
+                                <option value="1">Department</option>
+                                <option value="2">Role</option>
+                                <option value="3">Firstname</option>
+                                <option value="3">Lastname</option>
+                            </select>
+                        </div>
+                    </div>   
                 </form>
             </div>
         )
