@@ -7,7 +7,9 @@ import{
     SET_LOADING,
     CLEAR_USERS,
     GET_REPOS,
-    GET_EMPLOYEES
+    GET_EMPLOYEES,
+    FILTER_EMPLOYEES,
+    CLEAR_FILTER
 } from '../types'
 
 
@@ -28,13 +30,15 @@ const EmployeeState = props => {
     const initialState = {
         employees: [],
         employee: {},
+        filtered: null,
         loading: false,
+        error: null
     }
 
     const [ state, dispatch ] = useReducer(employeeReducer, initialState);
 
     //Search Users
-    const searchUsers = async text => { //ES6 syntax for async is beside the parameter
+    const searchUsers = async text => {
     setLoading()
     const res = await axios.get(`https:/employee.com/search/users?q=${text}&client_id=${gitHubClientId}&client_secret=${gitHubClientSecret}`);
     dispatch({
@@ -53,6 +57,21 @@ const EmployeeState = props => {
             payload: res.data
         })
       }
+
+        //Filter Employee
+        const filterEmployees = text => {
+            dispatch({ 
+                type: FILTER_EMPLOYEES,
+                payload: text 
+            })
+        }
+
+        //Clear Filter
+        const clearFilter = () => {
+            dispatch({ 
+                type: CLEAR_FILTER 
+            })
+        }
 
     //Get Repos
     const getUserRepos = async (username) => {
@@ -75,9 +94,12 @@ const EmployeeState = props => {
             employees: state.employees,
             employee: state.employee,
             loading: state.loading,
+            filtered: state.filtered,
             searchUsers,
             clearUsers,
             getEmployees,
+            filterEmployees,
+            clearFilter,
             getUserRepos
         }}>
             {props.children}

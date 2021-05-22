@@ -12,6 +12,7 @@ const EmployeeItem = ({ employee: { firstname, lastname, email, department, role
                 <p>Role {role}</p>
                 <div>
                     <Link to={`/user/}`} className='btn btn-dark btn-sm my-1'>More... </Link>
+                    <button className={`btn ${isAvailable ? 'btn-success' : 'btn-danger'} btn-sm my-1`}>{isAvailable ? 'Available' : 'Occupied'}</button>
                 </div>
             </div>
         )
