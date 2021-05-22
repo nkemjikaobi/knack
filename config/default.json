@@ -1,0 +1,3 @@
+{
+    "mongoURI": "mongodb+srv://root:root@knack.icuqn.mongodb.net/employees?retryWrites=true&w=majority"
+}
