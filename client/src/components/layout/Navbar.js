@@ -8,7 +8,7 @@ const Navbar = ({ icon,title}) => {
             <div className="navbar-fixed">
                 <nav style={navBgColor}>
                     <div className="nav-wrapper">
-                        <a href="/" className="brand-logo"><i className = {`fab ${icon}`}/> <span id="title">{ title }</span></a>
+                        <a href="/" className="brand-logo ml-3"><i className = {`fab ${icon}`}/> <span id="title">{ title }</span></a>
                         <ul id="nav-mobile" className="right ">
                             <li>
                                 <Link to='/createsurvey'>Create Survey</Link>
