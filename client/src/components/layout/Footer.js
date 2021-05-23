@@ -3,9 +3,9 @@ import React from 'react'
 const Footer = () => {
 
         return (
-                <footer class="page-footer" style={footerBgColor}>
-                    <div class="footer-copyright">
-                        <div class="container">
+                <footer className="page-footer" style={footerBgColor}>
+                    <div className="footer-copyright">
+                        <div className="container">
                         © 2021 Knack Org.
                         </div>
                     </div>

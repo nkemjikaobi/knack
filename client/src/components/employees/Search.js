@@ -25,16 +25,17 @@ const Search = () => {
                 <form className="form mb-4 mt-4">
                     <div className="row">
                         <div className="input-field col-md-6 col-sm-12">
-                            <input id="search" type="text" placeholder='Filter Employees by name, email, role, dept' required ref={text} onChange={onChange}/>
+                        {/* <i class="fas fa-search right" ></i> */}
+                            <input id="search" type="text" placeholder='Filter by name, email, role, dept' required ref={text} onChange={onChange}/>
                         </div>
                         <div className="input-field col-md-6 col-sm-12 col s12">
                             <select>
-                            <option value="" selected>All</option>
-                            <option value="1">Role</option>
-                            <option value="2">Department</option>
-                            <option value="3">Name</option>
+                                <option value="">All</option>
+                                <option value="1">Role[Ascending]</option>
+                                <option value="1">Role [Descending]</option>
+                                <option value="2">Department</option>
                             </select>
-                            <label>Sort By</label>
+                            <label>Sort By Dept</label>
                         </div>
                     </div>   
                 </form>
