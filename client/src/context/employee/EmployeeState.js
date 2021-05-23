@@ -74,28 +74,6 @@ const EmployeeState = props => {
                 })
         }
 
-        // const updateContact = async contact => {
-        //     const config = {
-        //         headers: {
-        //             'Content-Type' : 'application/json'
-        //         }
-        //     }
-    
-        //     try {
-        //         const res = await axios.put(`/api/contacts/${contact._id}`, contact, config);
-        //         dispatch({ 
-        //             type: UPDATE_CONTACT,
-        //              payload: res.data 
-        //             })
-        //     } catch (error) {
-        //         dispatch({ 
-        //             type: CONTACT_ERROR ,
-        //             payload: error.response.msg
-        //            })
-        //     }
-           
-        // }
-
         //Schedule Meeting
         const scheduleMeeting = async employee => {
             const res = await axios.put(`/api/employees/${employee._id}`, employee);

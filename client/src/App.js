@@ -7,7 +7,6 @@ import CreateSurvey from './components/pages/CreateSurvey';
 import NotFound from './components/pages/NotFound';
 import EmployeeState from './context/employee/EmployeeState'
 import './App.css';
-
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
