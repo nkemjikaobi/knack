@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './components/layout/Navbar';
 import Alert from  './components/layout/Alert';
 import Home from './components/pages/Home';
-// import ScheduleMeetingModal from '../src/components/employees/ScheduleMeetingModal';
+//import ScheduleMeetingModal from '../src/components/employees/ScheduleMeetingModal';
 import NotFound from './components/pages/NotFound';
 import EmployeeState from './context/employee/EmployeeState'
 import AlertState from './context/alert/AlertState'
@@ -29,7 +29,7 @@ const App = () =>  {
                 <Switch>
                   <Route exact path='/' component={Home} />
                   <Route component={NotFound} />
-                  
+                  {/* <ScheduleMeetingModal/> */}
                 </Switch>
               </div>
             </div>

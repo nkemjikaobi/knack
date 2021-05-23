@@ -3,34 +3,20 @@ import axios from 'axios'
 import employeeContext from './employeeContext'
 import employeeReducer from './employeeReducer'
 import{
-    SEARCH_USERS,
     SET_LOADING,
-    CLEAR_USERS,
-    GET_REPOS,
     GET_EMPLOYEES,
+    EMPLOYEE_ERROR,
     FILTER_EMPLOYEES,
     CLEAR_FILTER,
     SET_CURRENT,
-    CLEAR_CURRENT
+    CLEAR_CURRENT,
+    SCHEDULE_MEETING
 } from '../types'
 
 
-//For Deployment
-let gitHubClientId;
-let gitHubClientSecret;
-
-if(process.env.NODE_ENV !== 'production'){
-    gitHubClientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
-    gitHubClientSecret = process.env.REACT_APP_GITHUB_CLIENT_SECRET;
-}
-else{
-    gitHubClientId = process.env.GITHUB_CLIENT_ID;
-    gitHubClientSecret = process.env.GITHUB_CLIENT_SECRET;
-}
-
 const EmployeeState = props => {
     const initialState = {
-        employees: [],
+        employees: null,
         current: null,
         filtered: null,
         loading: false,
@@ -39,25 +25,23 @@ const EmployeeState = props => {
 
     const [ state, dispatch ] = useReducer(employeeReducer, initialState);
 
-    //Search Users
-    const searchUsers = async text => {
-    setLoading()
-    const res = await axios.get(`https:/employee.com/search/users?q=${text}&client_id=${gitHubClientId}&client_secret=${gitHubClientSecret}`);
-    dispatch({
-        type: SEARCH_USERS,
-        payload: res.data.items
-    })
-  }
-
     //Get Employees
     const getEmployees = async () => {
-        setLoading()
-        const res = await axios.get(`/api/employees`);
-        console.log(res.data);
-        dispatch({
-            type: GET_EMPLOYEES,
-            payload: res.data
-        })
+        try {
+            setLoading()
+            const res = await axios.get(`/api/employees`);
+            dispatch({
+                type: GET_EMPLOYEES,
+                payload: res.data
+            })
+            
+        } catch (error) {
+            dispatch({ 
+                type: EMPLOYEE_ERROR ,
+                payload: error.response.msg
+               })
+        }
+       
       }
 
         //Filter Employee
@@ -90,18 +74,13 @@ const EmployeeState = props => {
                 })
         }
 
-    //Get Repos
-    const getUserRepos = async (username) => {
-        setLoading()
-        const res = await axios.get(`https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${gitHubClientId}&client_secret=${gitHubClientSecret}`);
-        dispatch({
-            type: GET_REPOS,
-            payload: res.data
-        })
-      }
-
-    //Clear Users
-    const clearUsers = () => dispatch({ type: CLEAR_USERS})
+        //Schedule Meeting
+        const scheduleMeeting = (current) => {
+            dispatch({
+                type: SCHEDULE_MEETING,
+                payload: current
+            })
+        }
 
     //Set Loading
     const setLoading = () => dispatch({ type: SET_LOADING })
@@ -112,14 +91,12 @@ const EmployeeState = props => {
             current: state.current,
             loading: state.loading,
             filtered: state.filtered,
-            searchUsers,
-            clearUsers,
             getEmployees,
             filterEmployees,
             clearFilter,
             setCurrent,
             clearCurrent,
-            getUserRepos
+            scheduleMeeting
         }}>
             {props.children}
     </employeeContext.Provider>

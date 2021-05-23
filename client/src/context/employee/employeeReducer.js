@@ -1,29 +1,16 @@
 import{
-    SEARCH_USERS,
     SET_LOADING,
-    CLEAR_USERS,
-    GET_REPOS,
     GET_EMPLOYEES,
     FILTER_EMPLOYEES,
     CLEAR_FILTER,
     CLEAR_CURRENT,
-    SET_CURRENT
+    SET_CURRENT,
+    SCHEDULE_MEETING,
+    EMPLOYEE_ERROR
 } from '../types'
 
 const employeeReducer = (state, action) => {
     switch(action.type){
-        case SEARCH_USERS:
-            return {
-                ...state,
-                users: action.payload,
-                loading: false
-            }
-        case CLEAR_USERS:
-            return{
-                ...state,
-                users: [],
-                loading: false
-            }
         case GET_EMPLOYEES:
             return{
                 ...state,
@@ -35,7 +22,7 @@ const employeeReducer = (state, action) => {
                 ...state,
                 filtered: state.employees.filter(employee => {
                     const regex = new RegExp(`${action.payload}`, 'gi');
-                    return employee.firstname.match(regex) || employee.lastname.match(regex) || 
+                    return employee.firstName.match(regex) || employee.lastName.match(regex) || 
                            employee.email.match(regex) || employee.department.match(regex) ||
                            employee.role.match(regex);
                 })
@@ -55,16 +42,21 @@ const employeeReducer = (state, action) => {
                 ...state,
                 current: null
             }
-        case GET_REPOS:
+        case SCHEDULE_MEETING:
             return {
-                ...state,
-                repos: action.payload,
-                loading: false
+                //...state,
+                //employees: state.employees.map(employee => employee.email === action.payload.email ? action.payload,!action.payload.isAvailable : employee),
+                //current: null
             }
         case SET_LOADING:
             return {
                 ...state,
                 loading: true
+            }
+        case EMPLOYEE_ERROR:
+            return {
+                ...state,
+                error: action.payload
             }
         default:
             return state;

@@ -5,7 +5,6 @@ const Search = () => {
     const EmployeeContext = useContext(employeeContext);
     const { filterEmployees, clearFilter, filtered } = EmployeeContext;
     const text = useRef('');
-    console.log(text.current.value);
   
     useEffect(() => {
         if(filtered === null){

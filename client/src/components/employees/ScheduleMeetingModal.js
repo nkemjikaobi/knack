@@ -6,33 +6,35 @@ import employeeContext from '../../context/employee/employeeContext'
 const ScheduleMeetingModal = () => {
 
     const EmployeeContext = useContext(employeeContext);
-    const { current } = EmployeeContext;
+    const { current, employees, scheduleMeeting } = EmployeeContext;
 
 
     const [title, setTitle] = useState('');
     const [date, setDate] = useState('');
+    const [time, setTime] = useState('');
     const [firstName, setfirstName] = useState('');
     const [lastName, setlastName] = useState('');
+    const [isAvailable, setisAvailable] = useState('');
+    
 
     useEffect(() => {
+      
         if(current){
             setfirstName(current.firstName);
             setlastName(current.lastName);
+            //setisAvailable(current.isAvailable);
         }
     },[current])
 
     const onSubmit = () => {
-        if(title === '' || date === ''){
-            M.toast({ html: 'Please enter the title and date'});
+        if(title === '' || date === '' || time === ''){
+            M.toast({ html: 'Please all fields are required'});
         }
         else{
-            // const newTech = {
-            //     firstName,
-            //     lastName
-            // }
-
-            // addTech(newTech);
-            M.toast({ html: `Meeting Schdeuled for ${date}`})
+            employees.map(employee => employee.email === current.email && setisAvailable(!isAvailable))
+            //scheduleMeeting(current);
+            //setisAvailable(!isAvailable)
+            M.toast({ html: `Meeting Schdeuled for ${date} from ${time}`})
 
             //Clear fields
             setTitle('');
@@ -43,39 +45,51 @@ const ScheduleMeetingModal = () => {
 
         return (
             <div id='schedule-meeting-modal' className='modal'>
-                <div className="modal-content">
-                    <h4>Schedule Meeting with {firstName} {lastName}</h4>
+                <form action="" method="post">
+                    <div className="modal-content">
+                        <h4>Schedule Meeting with {firstName} {lastName}</h4>
+                            <div className="input-field col-md-12 col-sm-12">
+                                <input type="text"
+                                name='title'
+                                value={title}
+                                placeholder= "Annual Budget for Knack"
+                                onChange={e => setTitle(e.target.value)}/>
+                                <label htmlFor="title" className='active'>
+                                    Title
+                                </label>
+                            </div>
+                        
                     
-                        <div className="input-field col-md-12 col-sm-12">
-                            <input type="text"
-                             name='title'
-                             value={title}
-                             placeholder= "Annual Budget for Knack"
-                              onChange={e => setTitle(e.target.value)}/>
-                              <label htmlFor="title" className='active'>
-                                  Title
-                              </label>
-                        </div>
-                    
-                   
-                        <div className="input-field col-md-12 col-sm-12 datepicker">
-                            <input type="text"
-                             name='date'
-                             value={date}
-                              onChange={e => setDate(e.target.value)}/>
-                              <label htmlFor="date" className='active'>
-                                  Date
-                              </label>
-                        </div>
-                </div>
-                <div className="modal-footer">
-                    <a 
-                    href="#!" 
-                    onClick={onSubmit} 
-                    className='modal-close waves-effect blue waves-light btn'>
-                        Create Meeting
-                    </a>
-                </div>
+                            <div className="input-field col-md-12 col-sm-12 ">
+                                <input type="date"
+                                name='date'
+                                value={date}
+                                onChange={e => setDate(e.target.value)}/>
+                                <label htmlFor="date" className='active'>
+                                    Date
+                                </label>
+                            </div>
+                            
+                            <div className="input-field col-md-12 col-sm-12">
+                                <input type="text"
+                                placeholder="10:00 - 10:30"
+                                name='time'
+                                value={time}
+                                onChange={e => setTime(e.target.value)}/>
+                                <label htmlFor="time" className='active'>
+                                        Time
+                                </label>
+                            </div>
+                    </div>
+                    <div className="modal-footer">
+                        <a 
+                        href="#!" 
+                        onClick={onSubmit} 
+                        className='modal-close waves-effect blue waves-light btn'>
+                            Create Meeting
+                        </a>
+                    </div>
+                </form>
             </div>
         )
         

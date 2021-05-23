@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, Fragment } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import EmployeeItem from './EmployeeItem';
 import Spinner from '../layout/Spinner';
 import employeeContext from '../../context/employee/employeeContext'
@@ -18,20 +17,20 @@ const Employees = () => {
         <Fragment>
             <ScheduleMeetingModal />
             {employees !== null && !loading ? (
-                <TransitionGroup className="employee_style">
+                <div className="employee_style">
                 {filtered !== null 
                     ? filtered.map(employee => (
-                        <CSSTransition key={employee._id} timeout={500}  > 
+                        <div key={employee._id} timeout={500}  > 
                             <EmployeeItem  employee={employee} />
-                        </CSSTransition>
+                        </div>
                     ))
                 : employees.map(employee => (
-                    <CSSTransition key={employee._id} timeout={500} className=""> 
+                    <div key={employee._id} timeout={500} className=""> 
                         <EmployeeItem employee={employee}/>
-                    </CSSTransition>
+                    </div>
                      ))
                 }
-            </TransitionGroup>
+            </div>
             ) :
              < Spinner /> }
         </Fragment>
