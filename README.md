@@ -1,6 +1,7 @@
 # knack
 LIVE URL:  https://knack-co.herokuapp.com/
 
+<p>For some reason the styling is gone after I deployed </p>
 ![preview image](client/public/preview.png)
 
 <h1>Knack</h1>
