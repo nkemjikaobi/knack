@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, Fragment } from 'react';
+import PropTypes from 'prop-types'
 import EmployeeItem from './EmployeeItem';
 import Spinner from '../layout/Spinner';
 import employeeContext from '../../context/employee/employeeContext'
@@ -36,5 +37,13 @@ const Employees = () => {
         </Fragment>
     )
 }
+
+Employees.propTypes = {
+    loading: PropTypes.bool,
+    getEmployees: PropTypes.func,
+    employees: PropTypes.array,
+    filtered: PropTypes.object,
+}
+
 
 export default Employees

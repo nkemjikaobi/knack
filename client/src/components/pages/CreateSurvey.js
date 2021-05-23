@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import 'survey-react/survey.css'
 import * as Survey from 'survey-react'
 
+//I decided to just use a class based component here...
 class CreateSurvey extends Component {
 
     constructor(props){
@@ -90,6 +91,7 @@ class CreateSurvey extends Component {
         var onSurveyCompletion = this.state.isCompleted ? (
             <div>Thanks for taking the survey</div>
         ) : null
+        
         return (
             <div >
                {surveyRender}
