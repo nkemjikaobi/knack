@@ -21,14 +21,8 @@ body {
   line-height: 1.6;
   background-color: #fff;
   color: #333;
+}
 
-  display: flex !important;
-  min-height: 100vh !important;
-  flex-direction: column !important;
-}
-#main {
-  flex: 1 0 auto !important;
-}
 footer {
   position: fixed;
   bottom: 0;
