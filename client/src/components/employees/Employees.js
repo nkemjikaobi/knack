@@ -20,12 +20,12 @@ const Employees = () => {
                 <div className="employee_style">
                 {filtered !== null 
                     ? filtered.map(employee => (
-                        <div key={employee._id} timeout={500}  > 
+                        <div key={employee._id} > 
                             <EmployeeItem  employee={employee} />
                         </div>
                     ))
                 : employees.map(employee => (
-                    <div key={employee._id} timeout={500} className=""> 
+                    <div key={employee._id} className=""> 
                         <EmployeeItem employee={employee}/>
                     </div>
                      ))

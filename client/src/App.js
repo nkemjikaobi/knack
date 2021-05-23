@@ -1,6 +1,7 @@
 import React,{ useEffect }  from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
 import Alert from  './components/layout/Alert';
 import Home from './components/pages/Home';
 //import ScheduleMeetingModal from '../src/components/employees/ScheduleMeetingModal';
@@ -32,6 +33,7 @@ const App = () =>  {
                   {/* <ScheduleMeetingModal/> */}
                 </Switch>
               </div>
+              <Footer />
             </div>
           </Router>
         </AlertState>

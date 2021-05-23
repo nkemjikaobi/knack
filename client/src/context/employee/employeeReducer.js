@@ -44,9 +44,9 @@ const employeeReducer = (state, action) => {
             }
         case SCHEDULE_MEETING:
             return {
-                //...state,
-                //employees: state.employees.map(employee => employee.email === action.payload.email ? action.payload,!action.payload.isAvailable : employee),
-                //current: null
+                ...state,
+                employees: state.employees.map(employee => employee._id === action.payload._id ? action.payload : employee),
+                loading: false
             }
         case SET_LOADING:
             return {

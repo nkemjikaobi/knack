@@ -59,7 +59,7 @@ const EmployeeState = props => {
             })
         }
 
-        //Set Current Contact
+        //Set Current Employee
         const setCurrent = employee => {
             dispatch({ 
                 type: SET_CURRENT, 
@@ -67,18 +67,42 @@ const EmployeeState = props => {
             })
         }
 
-        //Clear Current Contact
+        //Clear Current Employee
         const clearCurrent = () => {
             dispatch({
                  type: CLEAR_CURRENT 
                 })
         }
 
+        // const updateContact = async contact => {
+        //     const config = {
+        //         headers: {
+        //             'Content-Type' : 'application/json'
+        //         }
+        //     }
+    
+        //     try {
+        //         const res = await axios.put(`/api/contacts/${contact._id}`, contact, config);
+        //         dispatch({ 
+        //             type: UPDATE_CONTACT,
+        //              payload: res.data 
+        //             })
+        //     } catch (error) {
+        //         dispatch({ 
+        //             type: CONTACT_ERROR ,
+        //             payload: error.response.msg
+        //            })
+        //     }
+           
+        // }
+
         //Schedule Meeting
-        const scheduleMeeting = (current) => {
+        const scheduleMeeting = async employee => {
+            const res = await axios.put(`/api/employees/${employee._id}`, employee);
+            console.log(res.data);
             dispatch({
                 type: SCHEDULE_MEETING,
-                payload: current
+                payload: res.data
             })
         }
 

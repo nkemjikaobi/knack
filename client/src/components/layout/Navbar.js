@@ -9,9 +9,9 @@ const Navbar = ({ icon,title}) => {
                 <nav style={navBgColor}>
                     <div className="nav-wrapper ml-5">
                         <a href="!#" className="brand-logo"><i className = {`fab ${icon}`}/> { title }</a>
-                        <ul id="nav-mobile" className="right hide-on-med-and-down">
+                        <ul id="nav-mobile" className="right ">
                             <li>
-                                <Link to='/'>Home</Link>
+                                <Link to='/survey'>Create Survey</Link>
                             </li>
                         </ul>
                     </div>

@@ -9,32 +9,45 @@ const ScheduleMeetingModal = () => {
     const { current, employees, scheduleMeeting } = EmployeeContext;
 
 
+    //For the Modal form
     const [title, setTitle] = useState('');
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
     const [firstName, setfirstName] = useState('');
     const [lastName, setlastName] = useState('');
     const [isAvailable, setisAvailable] = useState('');
-    
 
     useEffect(() => {
-      
+
         if(current){
             setfirstName(current.firstName);
             setlastName(current.lastName);
-            //setisAvailable(current.isAvailable);
+            setisAvailable(current.isAvailable);  
         }
+        
     },[current])
 
+    //To update the employee that the meeting is being scheduled with
+    // const [ employee, setEmployee] = useState({
+    //     firstName: current.firstName,
+    //     lastName: current.lastName,
+    //     email: current.email,
+    //     department: current.department,
+    //     role: current.role,
+    //     isAvailable: current.isAvailable
+    // });
+    //const [ employee, setEmployee] = useState('');
+    
     const onSubmit = () => {
         if(title === '' || date === '' || time === ''){
             M.toast({ html: 'Please all fields are required'});
         }
         else{
-            employees.map(employee => employee.email === current.email && setisAvailable(!isAvailable))
-            //scheduleMeeting(current);
-            //setisAvailable(!isAvailable)
-            M.toast({ html: `Meeting Schdeuled for ${date} from ${time}`})
+            //setEmployee(!employee.isAvailable)
+            
+            console.log(!current.isAvailable)
+            scheduleMeeting(current)
+            M.toast({ html: `Meeting with ${firstName} ${lastName} Schdeuled for ${date} from ${time}`})
 
             //Clear fields
             setTitle('');
