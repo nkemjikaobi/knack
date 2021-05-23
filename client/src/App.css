@@ -403,18 +403,13 @@ table th {
 .meeting:hover{
   color: #fff !important;
 }
-.brand-logo{
-  display: inline-block !important;
-  margin-left: 20px !important;
-}
+
 /* Mobile Styles */
 @media (max-width: 768px) {
   .hide-sm {
     display: none;
   }
-  .brand-logo{
-    margin-left: -10px !important;
-  }
+
   .grid-2,
   .grid-3,
   .grid-4 {

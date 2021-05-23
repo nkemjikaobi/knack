@@ -7,7 +7,7 @@ const Navbar = ({ icon,title}) => {
         return (
             <div className="navbar-fixed">
                 <nav style={navBgColor}>
-                    <div className="nav-wrapper ml-5">
+                    <div className="nav-wrapper">
                         <a href="/" className="brand-logo"><i className = {`fab ${icon}`}/> <span id="title">{ title }</span></a>
                         <ul id="nav-mobile" className="right ">
                             <li>
