@@ -1,5 +1,5 @@
 # knack
-LIVE URL:  https://derick-it-logger.herokuapp.com/
+LIVE URL:  https://knack-co.herokuapp.com/
 
 <h1>Knack</h1>
 <p>An employee directory</p>
