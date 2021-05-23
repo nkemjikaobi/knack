@@ -22,7 +22,10 @@ body {
   background-color: #fff;
   color: #333;
 }
-
+.btn{
+  color: white !important;
+  padding: 0 16px !important;
+}
 footer {
   position: fixed;
   bottom: 0;
