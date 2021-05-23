@@ -16,37 +16,4 @@ router.get('/', async (req, res) => {
     }
 })
 
-//@route   PUT api/employees/:id
-//@desc    Schedule a meeting[Change isAvailable to false]
-router.put('/:id', async (req, res) => {
-    //const { isAvailable } = req.body;
-
-    const isAvailable = false;
-
-    //Build Employee Object
-    const contactFields = {};
-    
-    if(isAvailable) contactFields.isAvailable = isAvailable;
-
-    try{
-        let employee = await Employee.findById(req.params.id);
-       
-        //Update the employee
-        employee = await Employee.findByIdAndUpdate(req.params.id,
-           { $set: contactFields },
-           { new: true } 
-            );
-            res.json(employee);
-    }
-    catch(err){
-        console.error(err.message);
-        res.status(500).send('Server Error');
-    }
-})
-
-
-
-
-
-
 module.exports = router;
