@@ -4,7 +4,7 @@ import NavBar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Alert from  './components/layout/Alert';
 import Home from './components/pages/Home';
-//import ScheduleMeetingModal from '../src/components/employees/ScheduleMeetingModal';
+import CreateSurvey from './components/pages/CreateSurvey';
 import NotFound from './components/pages/NotFound';
 import EmployeeState from './context/employee/EmployeeState'
 import AlertState from './context/alert/AlertState'
@@ -29,11 +29,11 @@ const App = () =>  {
                 <Alert/>
                 <Switch>
                   <Route exact path='/' component={Home} />
+                  <Route exact path='/createsurvey' component={CreateSurvey} />
                   <Route component={NotFound} />
-                  {/* <ScheduleMeetingModal/> */}
                 </Switch>
               </div>
-              <Footer />
+              <Footer/>
             </div>
           </Router>
         </AlertState>

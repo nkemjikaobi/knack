@@ -21,6 +21,20 @@ body {
   line-height: 1.6;
   background-color: #fff;
   color: #333;
+
+  display: flex !important;
+  min-height: 100vh !important;
+  flex-direction: column !important;
+}
+#main {
+  flex: 1 0 auto !important;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: black;
+ z-index:9999999;
 }
 
 a {
@@ -375,6 +389,11 @@ table th {
 .navbar .welcome span {
   margin-right: 0.6rem;
 }
+#title{
+  display: inline-block !important;
+  margin-left: -15px !important;
+  margin-top: 2px !important;
+}
 
 .employee_style{
   display: grid;
@@ -425,8 +444,10 @@ table th {
     grid-template-columns: 1fr;
     grid-gap: 1rem;
   }
-  .brand-logo{
+  #title{
     display: inline-block !important;
+    margin-left: -13px !important;
+    margin-top: -4px !important;
   }
   .nav-wrapper {
     margin-left: -10px !important;
