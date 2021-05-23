@@ -1,6 +1,8 @@
 # knack
 LIVE URL:  https://knack-co.herokuapp.com/
 
+![preview image](client/public/preview.png)
+
 <h1>Knack</h1>
 <p>An employee directory</p>
 <p>This is a project for an individual to view all employees in an organization, schdule meetings with available employees and also create surveys</p>
