@@ -6,7 +6,7 @@ import employeeContext from '../../context/employee/employeeContext'
 const ScheduleMeetingModal = () => {
 
     const EmployeeContext = useContext(employeeContext);
-    const { current, employees, scheduleMeeting } = EmployeeContext;
+    const { current } = EmployeeContext;
 
 
     //For the Modal form
@@ -15,38 +15,23 @@ const ScheduleMeetingModal = () => {
     const [time, setTime] = useState('');
     const [firstName, setfirstName] = useState('');
     const [lastName, setlastName] = useState('');
-    const [isAvailable, setisAvailable] = useState('');
 
     useEffect(() => {
 
         if(current){
             setfirstName(current.firstName);
             setlastName(current.lastName);
-            setisAvailable(current.isAvailable);  
         }
         
     },[current])
-
-    //To update the employee that the meeting is being scheduled with
-    // const [ employee, setEmployee] = useState({
-    //     firstName: current.firstName,
-    //     lastName: current.lastName,
-    //     email: current.email,
-    //     department: current.department,
-    //     role: current.role,
-    //     isAvailable: current.isAvailable
-    // });
-    //const [ employee, setEmployee] = useState('');
     
     const onSubmit = () => {
         if(title === '' || date === '' || time === ''){
             M.toast({ html: 'Please all fields are required'});
         }
         else{
-            //setEmployee(!employee.isAvailable)
             
-            console.log(!current.isAvailable)
-            scheduleMeeting(current)
+            //PS: There is no persisted data change such as (setting the availability of the employee to occupied) as an API would have to be created.
             M.toast({ html: `Meeting with ${firstName} ${lastName} Schdeuled for ${date} from ${time}`})
 
             //Clear fields
@@ -104,8 +89,7 @@ const ScheduleMeetingModal = () => {
                     </div>
                 </form>
             </div>
-        )
-        
+        ) 
 }
 ScheduleMeetingModal.propTypes = {
     current: PropTypes.object,
