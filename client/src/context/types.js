@@ -4,5 +4,4 @@ export const GET_EMPLOYEES = 'GET_EMPLOYEES';
 export const EMPLOYEE_ERROR = 'EMPLOYEE_ERROR';
 export const CLEAR_CURRENT = 'CLEAR_CURRENT';
 export const SET_CURRENT = 'SET_CURRENT';
-export const SCHEDULE_MEETING = 'SCHEDULE_MEETING';
 export const SET_LOADING = 'SET_LOADING';

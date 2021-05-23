@@ -5,7 +5,6 @@ import{
     CLEAR_FILTER,
     CLEAR_CURRENT,
     SET_CURRENT,
-    SCHEDULE_MEETING,
     EMPLOYEE_ERROR
 } from '../types'
 
@@ -41,12 +40,6 @@ const employeeReducer = (state, action) => {
             return {
                 ...state,
                 current: null
-            }
-        case SCHEDULE_MEETING:
-            return {
-                ...state,
-                employees: state.employees.map(employee => employee._id === action.payload._id ? action.payload : employee),
-                loading: false
             }
         case SET_LOADING:
             return {

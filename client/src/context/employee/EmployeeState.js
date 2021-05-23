@@ -9,8 +9,7 @@ import{
     FILTER_EMPLOYEES,
     CLEAR_FILTER,
     SET_CURRENT,
-    CLEAR_CURRENT,
-    SCHEDULE_MEETING
+    CLEAR_CURRENT
 } from '../types'
 
 
@@ -74,16 +73,6 @@ const EmployeeState = props => {
                 })
         }
 
-        //Schedule Meeting
-        const scheduleMeeting = async employee => {
-            const res = await axios.put(`/api/employees/${employee._id}`, employee);
-            console.log(res.data);
-            dispatch({
-                type: SCHEDULE_MEETING,
-                payload: res.data
-            })
-        }
-
     //Set Loading
     const setLoading = () => dispatch({ type: SET_LOADING })
 
@@ -97,8 +86,7 @@ const EmployeeState = props => {
             filterEmployees,
             clearFilter,
             setCurrent,
-            clearCurrent,
-            scheduleMeeting
+            clearCurrent
         }}>
             {props.children}
     </employeeContext.Provider>
